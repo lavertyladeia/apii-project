@@ -46,13 +46,13 @@ public class EmpresaMenu {
 	public void cadastrarEmpresa(){
 		Scanner entrada = new Scanner(System.in);
 		
-		System.out.println("Nome da Empresa: ");
+		System.out.print("Nome da Empresa: ");
 		String nome = entrada.nextLine();
 		
-		System.out.println("CNPJ: ");
+		System.out.print("CNPJ: ");
 		String cnpj = entrada.nextLine();
 		
-		System.out.println("Endereco: ");
+		System.out.print("Endereco: ");
 		String endereco = entrada.nextLine();
 		
 		Empresa empresa = new Empresa(1, nome, cnpj, endereco);

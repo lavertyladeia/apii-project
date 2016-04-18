@@ -56,7 +56,6 @@ public class EmpresaDAO {
 			System.out.printf("%-10s %-35s %-30s %-35s", "ID", "Empresa", "CNPJ", "Endereco");
 			
 			while(bufferLeitura.ready()){
-				//campo localizado
 				int campo = 1;
 				
 				String id = "", nome = "", cnpj = "", endereco = "";
@@ -85,14 +84,18 @@ public class EmpresaDAO {
 						default:
 							break;
 						}
-					
+
 					}else{
 						campo++;						
 					}
 				}
 				
-				System.out.printf("%-15s %-30s %-45 %n", id, nome, cnpj, endereco);				
+				System.out.println("");
+				System.out.printf("%-15s %-35s %-30s %-35s", id, nome, cnpj, endereco);	
 			}
+			
+			System.out.println("");
+			System.out.println("****************************************************************************************");
 			
 		}catch(IOException e){
 			System.out.println("Erro ao acessar o arquivo empresa.txt " + e.getStackTrace() );
