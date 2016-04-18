@@ -10,13 +10,16 @@ import apII.menu.EmpresaMenu;
 
 public class Principal {
 	
+	EmpresaMenu empresaMenu;
 	
 	public Principal(){
-		mainMenu();
 	}
 	
+	public void setEmpresaMenu(EmpresaMenu empresaMenu){
+		this.empresaMenu = empresaMenu;
+	}
 
-	public void mainMenu(){
+	public void start(){
 		clear();
 		
 		System.out.print("Dados da Empresa (1)");
@@ -32,7 +35,7 @@ public class Principal {
 		Scanner entrada = new Scanner(System.in);
 		switch(entrada.nextInt()) {
 		case 1:
-			EmpresaMenu empresaMenu = new EmpresaMenu();
+			empresaMenu.showMenu();
 			break;
 
 		case 2:
@@ -66,7 +69,12 @@ public class Principal {
 	}
 	
 	public static void main(String[] args) {
-		Principal principal = new Principal();
+		Principal menuPrincipal = new Principal();
+		EmpresaMenu menuEmpresa = new EmpresaMenu(menuPrincipal);
+		
+		menuPrincipal.setEmpresaMenu(menuEmpresa);
+		
+		menuPrincipal.start();
 		
 	}
 

@@ -8,11 +8,13 @@ import apII.dao.EmpresaDAO;
 
 public class EmpresaMenu {
 
-	public EmpresaMenu() {
-		menuEmpresa();
+	Principal menuPrincipal;
+	
+	public EmpresaMenu(Principal menuPrincipal) {
+		this.menuPrincipal = menuPrincipal;
 	}
 	
-	public void menuEmpresa(){
+	public void showMenu(){
 		System.out.print("Exibir dados da Empresa (1)");
 		System.out.print("\t");
 		System.out.print("Cadastrar Empresa (2)");
@@ -30,7 +32,7 @@ public class EmpresaMenu {
 			cadastrarEmpresa();
 			break;
 		case 3:
-			Principal menuPrincipal = new Principal();
+			menuPrincipal.start();
 			break;
 		default:
 			break;
@@ -40,7 +42,7 @@ public class EmpresaMenu {
 	
 	public void listarDadosEmpresa(){
 		EmpresaDAO.listar();
-		menuEmpresa();
+		showMenu();
 	}
 	
 	public void cadastrarEmpresa(){
@@ -61,7 +63,7 @@ public class EmpresaMenu {
 		else
 			System.out.println("Não foi possível cadastrar a empresa solicitada!");
 		
-		menuEmpresa();
+		showMenu();
 	}
 	
 
