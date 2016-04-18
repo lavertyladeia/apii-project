@@ -10,7 +10,7 @@ public class Empresa {
 	private String cnpj;
 	private String endereco;
 	
-	//private List<Departamento> departamentos;
+	private List<Departamento> departamentos;
 	//private List<Empregado> empregados;
 	
 	public Empresa(){
@@ -60,21 +60,15 @@ public class Empresa {
 		this.endereco = endereco;
 	}
 	
-	/*public List<Departamento> getDepartamentos() {
+	public List<Departamento> getDepartamentos() {
 		return departamentos;
 	}
 
-	public void setDepartamentos(List<Departamento> departamentos) {
-		this.departamentos = departamentos;
-	}
 	
-	public List<Empregado> getEmpregados() {
-		return empregados;
-	}
+	//public List<Empregado> getEmpregados() {
+	//	return empregados;
+	//}
 
-	public void setEmpregados(List<Empregado> empregados) {
-		this.empregados = empregados;
-	} */
 
 	@Override
 	public int hashCode() {
