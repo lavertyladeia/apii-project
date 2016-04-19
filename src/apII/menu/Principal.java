@@ -11,12 +11,17 @@ import apII.menu.EmpresaMenu;
 public class Principal {
 	
 	EmpresaMenu empresaMenu;
+	DepartamentoMenu departamentoMenu;
 	
 	public Principal(){
 	}
 	
 	public void setEmpresaMenu(EmpresaMenu empresaMenu){
 		this.empresaMenu = empresaMenu;
+	}
+	
+	public void setDepartamentoMenu(DepartamentoMenu departamentoMenu){
+		this.departamentoMenu = departamentoMenu;
 	}
 
 	public void start(){
@@ -39,7 +44,7 @@ public class Principal {
 			break;
 
 		case 2:
-			//submenuDepartamentos();
+			departamentoMenu.showMenu();
 			break;
 		
 		case 3:
@@ -71,8 +76,10 @@ public class Principal {
 	public static void main(String[] args) {
 		Principal menuPrincipal = new Principal();
 		EmpresaMenu menuEmpresa = new EmpresaMenu(menuPrincipal);
+		DepartamentoMenu menuDepartamento = new DepartamentoMenu(menuPrincipal);
 		
 		menuPrincipal.setEmpresaMenu(menuEmpresa);
+		menuPrincipal.setDepartamentoMenu(menuDepartamento);
 		
 		menuPrincipal.start();
 		
