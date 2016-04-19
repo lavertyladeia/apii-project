@@ -1,17 +1,11 @@
 package apII.menu;
 import java.util.Scanner;
 
-import apII.pojo.Departamento;
-import apII.pojo.Funcionario;
-import apII.pojo.Empresa;
-import apII.dao.EmpresaDAO;
-import apII.menu.EmpresaMenu;
-
-
 public class Principal {
 	
 	EmpresaMenu empresaMenu;
 	DepartamentoMenu departamentoMenu;
+	FuncionarioMenu funcionarioMenu;
 	
 	public Principal(){
 	}
@@ -23,6 +17,11 @@ public class Principal {
 	public void setDepartamentoMenu(DepartamentoMenu departamentoMenu){
 		this.departamentoMenu = departamentoMenu;
 	}
+	
+	public void setFuncionarioMenu(FuncionarioMenu funcionarioMenu){
+		this.funcionarioMenu = funcionarioMenu;
+	}
+	
 
 	public void start(){
 		clear();
@@ -31,7 +30,7 @@ public class Principal {
 		System.out.print("\t");
 		System.out.print("Departamentos (2)");
 		System.out.print("\t");
-		System.out.print("Empregados (3)");
+		System.out.print("Funcionários (3)");
 		System.out.print("\t");
 		System.out.println("Fechar (99)");
 		
@@ -48,7 +47,7 @@ public class Principal {
 			break;
 		
 		case 3:
-			//submenuEmpregados();
+			funcionarioMenu.showMenu();
 			break;
 		case 99:
 			System.exit(0);
@@ -58,15 +57,6 @@ public class Principal {
 		
 	}
 	
-	
-	public void submenuDepartamentos(){
-		
-	}
-
-	public void submenuEmpregados(){
-		
-	}	
-	
 	public void clear(){
 		for (int i = 0; i <= 100; i++) {
 			System.out.println("");
@@ -75,11 +65,14 @@ public class Principal {
 	
 	public static void main(String[] args) {
 		Principal menuPrincipal = new Principal();
+		
 		EmpresaMenu menuEmpresa = new EmpresaMenu(menuPrincipal);
 		DepartamentoMenu menuDepartamento = new DepartamentoMenu(menuPrincipal);
+		FuncionarioMenu menuFuncionario = new FuncionarioMenu(menuPrincipal);
 		
 		menuPrincipal.setEmpresaMenu(menuEmpresa);
 		menuPrincipal.setDepartamentoMenu(menuDepartamento);
+		menuPrincipal.setFuncionarioMenu(menuFuncionario);
 		
 		menuPrincipal.start();
 		

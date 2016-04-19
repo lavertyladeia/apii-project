@@ -8,10 +8,10 @@ public class Funcionario {
 	private String nome;
 	private String cpf;
 	private String rg;
-	private Date nascimento;
+	private String nascimento;
 	private String cargo;
 	
-	public Funcionario(int id, String nome, String cpf, String rg, Date nascimento,
+	public Funcionario(int id, String nome, String cpf, String rg, String nascimento,
 			String cargo) {
 		
 		setId(id);
@@ -55,11 +55,11 @@ public class Funcionario {
 		return rg;
 	}
 
-	public Date getNascimento() {
+	public String getNascimento() {
 		return nascimento;
 	}
 
-	public void setNascimento(Date nascimento) {
+	public void setNascimento(String nascimento) {
 		this.nascimento = nascimento;
 	}
 
