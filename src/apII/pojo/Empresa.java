@@ -5,12 +5,12 @@ import java.util.List;
 
 public class Empresa {
 	
-	private int id;
-	private String nome;
-	private String cnpj;
-	private String endereco;
+	private int id;	//Declara o atributo id do tipo int
+	private String nome;	//Declara o atributo nome do tipo String
+	private String cnpj;	//Declara o atributo cnpj do tipo String
+	private String endereco;	//Declara o atributo endereco do tipo String
 	
-	private List<Departamento> departamentos;
+	private List<Departamento> departamentos;	//Cria uma lista de objetos do tipo Departamento
 	//private List<Empregado> empregados;
 	
 	public Empresa(){
@@ -20,7 +20,7 @@ public class Empresa {
 	public Empresa(int id,
 			String nome,
 			String cnpj,
-			String endereco){
+			String endereco){	//Construtor da classe Empresa
 		
 		setId(id);
 		setNome(nome);
@@ -32,7 +32,7 @@ public class Empresa {
 		
 	}	
 	
-	public int getId() {
+	public int getId() {	//Gets e sets da classe empresa
 		return id;
 	}
 	public void setId(int id) {
@@ -76,7 +76,7 @@ public class Empresa {
 	}
 
 	@Override
-	public String toString() {
+	public String toString() {	//Formatação do texto que aparecerá na tela
 		return getId() + "\t\t" + getNome() +  "\t\t" + getCnpj() + "\t\t" + getEndereco();
 	}
 

@@ -4,15 +4,15 @@ import java.util.Date;
 
 public class Funcionario {
 
-	private int id;
-	private String nome;
-	private String cpf;
-	private String rg;
-	private String nascimento;
-	private String cargo;
+	private int id;	//Declara o atributo id do tipo int
+	private String nome; //Declara o atributo nome do tipo String
+	private String cpf; //Declara o atributo cpf do tipo String
+	private String rg; //Declara o atributo rg do tipo String
+	private String nascimento; //Declara o atributo nascimento do tipo String
+	private String cargo; //Declara o atributo cargo do tipo String
 	
 	public Funcionario(int id, String nome, String cpf, String rg, String nascimento,
-			String cargo) {
+			String cargo) {	//Construtor da classe Funcionario
 		
 		setId(id);
 		setNome(nome);
@@ -23,7 +23,7 @@ public class Funcionario {
 
 	}
 
-	public int getId() {
+	public int getId() {		//Gets e sets da classe Funcionario
 		return id;
 	}
 

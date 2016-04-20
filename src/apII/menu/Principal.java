@@ -3,33 +3,28 @@ import java.util.Scanner;
 
 public class Principal {
 	
-	EmpresaMenu empresaMenu;
-	DepartamentoMenu departamentoMenu;
-	FuncionarioMenu funcionarioMenu;
-	TarefaMenu tarefaMenu;
+	EmpresaMenu empresaMenu;	//Cria um objeto do tipo EmpresaMenu
+	DepartamentoMenu departamentoMenu;	//Cria um objeto do tipo DepartamentoMenu
+	FuncionarioMenu funcionarioMenu;	//Cria um objeto do tipo FuncionarioMenu
 	
 	public Principal(){
 	}
 	
 	public void setEmpresaMenu(EmpresaMenu empresaMenu){
-		this.empresaMenu = empresaMenu;
+		this.empresaMenu = empresaMenu;		//Referencia o atributo empresaMenu ao atributo declarado nesta classe
 	}
 	
 	public void setDepartamentoMenu(DepartamentoMenu departamentoMenu){
-		this.departamentoMenu = departamentoMenu;
+		this.departamentoMenu = departamentoMenu;		//Referencia o atributo departamentoMenu ao atributo declarado nesta classe
 	}
 	
 	public void setFuncionarioMenu(FuncionarioMenu funcionarioMenu){
-		this.funcionarioMenu = funcionarioMenu;
-	}
-	
-	public void setTarefaMenu(TarefaMenu tarefaMenu){
-		this.tarefaMenu = tarefaMenu;
+		this.funcionarioMenu = funcionarioMenu;		//Referencia o atributo funcionarioMenu ao atributo declarado nesta classe
 	}
 	
 
-	public void start(){
-		clear();
+	public void start(){	//Método do menu principal
+		clear();	//Limpa todo o texto da tela
 		
 		System.out.print("Dados da Empresa (1)");
 		System.out.print("\t");
@@ -37,32 +32,25 @@ public class Principal {
 		System.out.print("\t");
 		System.out.print("Funcionários (3)");
 		System.out.print("\t");
-		System.out.print("Executar Tarefa (4)");
-		System.out.print("\t");
 		System.out.println("Fechar (99)");
 		
 		System.out.print("Opcao: ");
 		
-		Scanner entrada = new Scanner(System.in);
-		switch(entrada.nextInt()) {
+		Scanner entrada = new Scanner(System.in);	//Entrada do usuário para a opção desejada
+		switch(entrada.nextInt()) {		//Switch de controle das opções disponíveis
 		case 1:
-			empresaMenu.showMenu();
+			empresaMenu.showMenu();		//Chama o menu de empresa
 			break;
 
 		case 2:
-			departamentoMenu.showMenu();
+			departamentoMenu.showMenu();		//Chama o menu de departamento
 			break;
 		
 		case 3:
-			funcionarioMenu.showMenu();
+			funcionarioMenu.showMenu();		//Chama o menu de funcionario
 			break;
-		
-		case 4:
-			tarefaMenu.showMenu();
-			break;
-		
 		case 99:
-			System.exit(0);
+			System.exit(0);		//Finaliza o programa
 		default:
 			break;
 		} 		
@@ -76,19 +64,17 @@ public class Principal {
 	}
 	
 	public static void main(String[] args) {
-		Principal menuPrincipal = new Principal();
+		Principal menuPrincipal = new Principal();	//Cria um objeto do tipo Principal
 		
-		EmpresaMenu menuEmpresa = new EmpresaMenu(menuPrincipal);
-		DepartamentoMenu menuDepartamento = new DepartamentoMenu(menuPrincipal);
-		FuncionarioMenu menuFuncionario = new FuncionarioMenu(menuPrincipal);
-		TarefaMenu tarefaMenu = new TarefaMenu(menuPrincipal);
+		EmpresaMenu menuEmpresa = new EmpresaMenu(menuPrincipal);	//Cria um objeto do tipo EmpresaMenu passando como parâmetro a variável menuPrincipal
+		DepartamentoMenu menuDepartamento = new DepartamentoMenu(menuPrincipal);	//Cria um objeto do tipo EmpresaMenu passando como parâmetro a variável menuPrincipal
+		FuncionarioMenu menuFuncionario = new FuncionarioMenu(menuPrincipal);	//Cria um objeto do tipo EmpresaMenu passando como parâmetro a variável menuPrincipal
 		
-		menuPrincipal.setEmpresaMenu(menuEmpresa);
-		menuPrincipal.setDepartamentoMenu(menuDepartamento);
-		menuPrincipal.setFuncionarioMenu(menuFuncionario);
-		menuPrincipal.setTarefaMenu(tarefaMenu);
+		menuPrincipal.setEmpresaMenu(menuEmpresa);	//Chama o método setEmpresaMenu passando como parâmetro o objeto menuEmpresa
+		menuPrincipal.setDepartamentoMenu(menuDepartamento);	//Chama o método setDepartamentoMenu passando como parâmetro o objeto menuDepartamento
+		menuPrincipal.setFuncionarioMenu(menuFuncionario);	//Chama o método setFuncionarioMenu passando como parâmetro o objeto menuFuncionario
 		
-		menuPrincipal.start();
+		menuPrincipal.start();	//Início do menu principal
 		
 	}
 
