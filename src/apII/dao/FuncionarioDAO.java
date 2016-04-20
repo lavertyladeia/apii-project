@@ -5,8 +5,10 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.List;
 
-import apII.controller.FuncionarioController;
+import apII.menu.Principal;
 import apII.pojo.Funcionario;
 
 public class FuncionarioDAO {
@@ -22,7 +24,7 @@ public class FuncionarioDAO {
 		
 		try{
 			if(funcionario != null){
-				arquivoFuncionario = new FileWriter(FuncionarioController.class.getResource("/apII/controller/funcionario.txt").getPath());
+				arquivoFuncionario = new FileWriter(Principal.class.getResource("/apII/controller/funcionario.txt").getPath());
 				registro = new PrintWriter(arquivoFuncionario);
 				
 				registro.println(funcionario.getId() +";"+ funcionario.getNome() +
@@ -45,17 +47,15 @@ public class FuncionarioDAO {
 		
 	}
 		
-	public static void listar(){
-		
+	public static List<Funcionario> getFuncionarios(){
+		List<Funcionario> funcionarios = new ArrayList<Funcionario>();
+				
 		FileReader arquivo = null;
 		BufferedReader bufferLeitura = null;
 		
 		try{
-			arquivo = new FileReader(FuncionarioController.class.getResource("/apII/controller/funcionario.txt").getPath());
+			arquivo = new FileReader(Principal.class.getResource("/apII/controller/funcionario.txt").getPath());
 			bufferLeitura = new BufferedReader(arquivo);
-			
-			System.out.println("****************************************************************************************");
-			System.out.printf("%-10s %-35s %-30s %-35s %-40s %-45s", "ID", "Funcionario", "CPF", "RG", "Nascimento", "Cargo");
 			
 			while(bufferLeitura.ready()){
 				int campo = 1;
@@ -100,16 +100,35 @@ public class FuncionarioDAO {
 					}
 				}
 				
-				System.out.println("");
-				System.out.printf("%-15s %-35s %-30s %-35s %-40s %-45s", id, nome, cpf, rg, nascimento, cargo);	
+				funcionarios.add(new Funcionario(new Integer(id).intValue(), nome, cpf, rg, nascimento, cargo));
+					
 			}
 			
-			System.out.println("");
-			System.out.println("****************************************************************************************");
+			return funcionarios;
 			
 		}catch(IOException e){
 			System.out.println("Erro ao acessar o arquivo funcionario.txt " + e.getStackTrace() );
+			return null;
 		}
+
+	}
+	
+	public static void listar(){
+		
+		List<Funcionario> funcionarios = getFuncionarios();
+		
+		System.out.println("****************************************************************************************");
+		System.out.printf("%-5s %-25s %-30s %-30s %-30s %-45s", "ID", "Funcionario", "CPF", "RG", "Nascimento", "Cargo");
+		
+		for (int i = 0; i < funcionarios.size(); i++){
+			Funcionario f = funcionarios.get(i);
+			System.out.println("");
+			System.out.printf("%-5s %-25s %-30s %-30s %-30s %-45s", f.getId(), f.getNome(), f.getCpf(), f.getRg(), f.getNascimento(), f.getCargo());	
+		}
+		
+		System.out.println("");
+		System.out.println("****************************************************************************************");
+		
 	}
 
 }

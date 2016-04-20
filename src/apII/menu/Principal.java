@@ -6,6 +6,7 @@ public class Principal {
 	EmpresaMenu empresaMenu;
 	DepartamentoMenu departamentoMenu;
 	FuncionarioMenu funcionarioMenu;
+	TarefaMenu tarefaMenu;
 	
 	public Principal(){
 	}
@@ -22,6 +23,10 @@ public class Principal {
 		this.funcionarioMenu = funcionarioMenu;
 	}
 	
+	public void setTarefaMenu(TarefaMenu tarefaMenu){
+		this.tarefaMenu = tarefaMenu;
+	}
+	
 
 	public void start(){
 		clear();
@@ -31,6 +36,8 @@ public class Principal {
 		System.out.print("Departamentos (2)");
 		System.out.print("\t");
 		System.out.print("Funcionários (3)");
+		System.out.print("\t");
+		System.out.print("Executar Tarefa (4)");
 		System.out.print("\t");
 		System.out.println("Fechar (99)");
 		
@@ -49,6 +56,11 @@ public class Principal {
 		case 3:
 			funcionarioMenu.showMenu();
 			break;
+		
+		case 4:
+			tarefaMenu.showMenu();
+			break;
+		
 		case 99:
 			System.exit(0);
 		default:
@@ -69,10 +81,12 @@ public class Principal {
 		EmpresaMenu menuEmpresa = new EmpresaMenu(menuPrincipal);
 		DepartamentoMenu menuDepartamento = new DepartamentoMenu(menuPrincipal);
 		FuncionarioMenu menuFuncionario = new FuncionarioMenu(menuPrincipal);
+		TarefaMenu tarefaMenu = new TarefaMenu(menuPrincipal);
 		
 		menuPrincipal.setEmpresaMenu(menuEmpresa);
 		menuPrincipal.setDepartamentoMenu(menuDepartamento);
 		menuPrincipal.setFuncionarioMenu(menuFuncionario);
+		menuPrincipal.setTarefaMenu(tarefaMenu);
 		
 		menuPrincipal.start();
 		
