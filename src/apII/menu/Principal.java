@@ -6,6 +6,7 @@ public class Principal {
 	EmpresaMenu empresaMenu;	//Cria um objeto do tipo EmpresaMenu
 	DepartamentoMenu departamentoMenu;	//Cria um objeto do tipo DepartamentoMenu
 	FuncionarioMenu funcionarioMenu;	//Cria um objeto do tipo FuncionarioMenu
+	TarefaMenu tarefaMenu;
 	
 	public Principal(){
 	}
@@ -22,6 +23,10 @@ public class Principal {
 		this.funcionarioMenu = funcionarioMenu;		//Referencia o atributo funcionarioMenu ao atributo declarado nesta classe
 	}
 	
+	public void setTarefaMenu(TarefaMenu tarefaMenu){
+		this.tarefaMenu = tarefaMenu;
+	}
+	
 
 	public void start(){	//Método do menu principal
 		clear();	//Limpa todo o texto da tela
@@ -31,6 +36,8 @@ public class Principal {
 		System.out.print("Departamentos (2)");
 		System.out.print("\t");
 		System.out.print("Funcionários (3)");
+		System.out.print("\t");
+		System.out.print("Executar Tarefa (4)");
 		System.out.print("\t");
 		System.out.println("Fechar (99)");
 		
@@ -49,6 +56,11 @@ public class Principal {
 		case 3:
 			funcionarioMenu.showMenu();		//Chama o menu de funcionario
 			break;
+		
+		case 4:
+			tarefaMenu.showMenu();
+			break;
+		
 		case 99:
 			System.exit(0);		//Finaliza o programa
 		default:
@@ -69,10 +81,12 @@ public class Principal {
 		EmpresaMenu menuEmpresa = new EmpresaMenu(menuPrincipal);	//Cria um objeto do tipo EmpresaMenu passando como parâmetro a variável menuPrincipal
 		DepartamentoMenu menuDepartamento = new DepartamentoMenu(menuPrincipal);	//Cria um objeto do tipo EmpresaMenu passando como parâmetro a variável menuPrincipal
 		FuncionarioMenu menuFuncionario = new FuncionarioMenu(menuPrincipal);	//Cria um objeto do tipo EmpresaMenu passando como parâmetro a variável menuPrincipal
+		TarefaMenu tarefaMenu = new TarefaMenu(menuPrincipal);
 		
 		menuPrincipal.setEmpresaMenu(menuEmpresa);	//Chama o método setEmpresaMenu passando como parâmetro o objeto menuEmpresa
 		menuPrincipal.setDepartamentoMenu(menuDepartamento);	//Chama o método setDepartamentoMenu passando como parâmetro o objeto menuDepartamento
 		menuPrincipal.setFuncionarioMenu(menuFuncionario);	//Chama o método setFuncionarioMenu passando como parâmetro o objeto menuFuncionario
+		menuPrincipal.setTarefaMenu(tarefaMenu);
 		
 		menuPrincipal.start();	//Início do menu principal
 		
